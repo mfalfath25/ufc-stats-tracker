@@ -6,7 +6,6 @@ export const fetcher = async (endpoint: string) => {
   if (api_key) {
     const params = new URLSearchParams({ api_key })
     url.search = params.toString()
-    console.log(url)
     const res = await fetch(url)
     return res.json()
   }

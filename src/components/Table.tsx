@@ -12,9 +12,10 @@ const tableHeaders = {
     { label: "Gender", key: "gender" }
   ],
   rankings: [
-    { label: "Weight Class", key: "weight class" },
-    { label: "Abbreviation", key: "abbreviation" },
-    { label: "Gender", key: "gender" },
+    { label: 'Weight Class', key: 'weight class' }
+    // { label: "Weight Class", key: "weight class" },
+    // { label: "Abbreviation", key: "abbreviation" },
+    // { label: "Gender", key: "gender" },
   ],
   competitions: [
     { label: "Competition", key: "competition.name" },
@@ -41,25 +42,23 @@ export default function Table({ data, tableType }: TableProps) {
         )
       } else if ('rankings' in data) {
         return (
-          <div>
-            <tr>{
-              data?.rankings?.map((ranking, index) => (
-                <td key={index}>
-                  <td>{ranking.name}</td>
-                  {
-                    ranking.competitor_rankings?.map((fighter, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{fighter.competitor.name}</td>
-                        <td>{fighter.competitor.abbreviation}</td>
-                        <td>{fighter.competitor.gender}</td>
-                      </tr>
-                    ))
-                  }
-                </td>
-              ))
-            }</tr>
-          </div>
+          <tr>{
+            data?.rankings?.map((ranking, index) => (
+              <tr key={index}>
+                {ranking.name}
+                {
+                  ranking.competitor_rankings?.map((fighter, index) => (
+                    <tr key={index} className='hover'>
+                      <td>{index + 1}</td>
+                      <td>{fighter.competitor.name}</td>
+                      <td>{fighter.competitor.abbreviation}</td>
+                      <td>{fighter.competitor.gender}</td>
+                    </tr>
+                  ))
+                }
+              </tr >
+            ))
+          }</tr >
         )
       }
     }
@@ -67,7 +66,7 @@ export default function Table({ data, tableType }: TableProps) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table-compact table w-full table-auto">
+      <table className="table-compact table w-full">
         <thead>
           <tr>
             {tableHeaders[tableType]?.map((header, index) => (

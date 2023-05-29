@@ -1,4 +1,4 @@
-import Table from "@/components/Table"
+import TableRankings from "@/components/TableRangkings"
 import { fetcher } from "@/utils/fetcher"
 
 export default async function Rankings() {
@@ -6,7 +6,7 @@ export default async function Rankings() {
 
   return (
     <div>
-      <Table data={data} tableType='rankings' />
+      <TableRankings data={data} />
     </div>
   )
 }
