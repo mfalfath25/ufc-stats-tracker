@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'UFC Stats',
-  description: 'UFC stats tracker',
+  title: 'UFC Stats Tracker',
+  description: 'UFC stats tracker made with NextJS 13',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

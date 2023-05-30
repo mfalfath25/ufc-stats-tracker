@@ -9,11 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
     "@emotion/server": "^11.11.0",
-    "@mantine/core": "^6.0.11",
-    "@mantine/hooks": "^6.0.11",
-    "@mantine/next": "^6.0.11",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -21,14 +17,15 @@
     "daisyui": "^2.52.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
+    "lucide-react": "^0.224.0",
+    "moment": "^2.29.4",
     "next": "13.4.3",
+    "nprogress": "^0.2.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
-  "devDependencies": {
-    "prisma": "^4.14.1"
-  }
+  "devDependencies": {}
 }

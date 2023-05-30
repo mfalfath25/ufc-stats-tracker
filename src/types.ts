@@ -49,3 +49,32 @@ export interface Rankings {
   generated_at: string;
   rankings: Ranking[];
 }
+
+interface Competition {
+  id: string;
+  name: string;
+  parent_id?: string;
+  category: {
+    id: string;
+    name: string;
+  },
+}
+
+export interface Competitions {
+  competitions: Competition[];
+  generated_at: string
+}
+
+interface Season {
+  id: string;
+  name: string;
+  start_date: string;
+  end_date: string;
+  year: string;
+  competition_id: string;
+}
+
+export interface Seasons {
+  generated_at: string;
+  seasons: Season[];
+}
