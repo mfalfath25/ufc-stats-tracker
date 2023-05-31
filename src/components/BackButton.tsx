@@ -11,9 +11,9 @@ const BackButton = () => {
 
   return (
     <>
-      < button onClick={handleGoBack} >
+      <button onClick={handleGoBack} >
         <ArrowBigLeft size={24} strokeWidth={2} />
-      </button>;
+      </button>
     </>
   )
 };

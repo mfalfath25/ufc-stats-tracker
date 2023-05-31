@@ -1,5 +1,5 @@
 import TableCompetitions from "@/components/TableCompetitions";
-import { dummyCompetition, dummySeasons } from "@/dummy";
+import { dummySeasons } from "@/dummy";
 
 export default function SeasonsLayout({
   children,

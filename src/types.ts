@@ -156,6 +156,32 @@ interface SportEventStatus {
   winner?: string
 };
 
-// interface Statistics {
-
-// }
+export interface CompetitorProfile {
+  generated_at: string;
+  competitor: {
+    id: string;
+    name: string;
+    abbreviation: string;
+    gender: string;
+  };
+  info: {
+    birth_city: string;
+    birth_state: string;
+    birth_country: string;
+    birth_country_code: string;
+    birth_date: string;
+    fighting_out_of_city: string;
+    fighting_out_of_country: string;
+    fighting_out_of_country_code: string;
+    fighting_out_of_state: string;
+    reach: number;
+    height: number;
+    weight: number;
+    nickname: string;
+  };
+  record: {
+    wins: number;
+    draws: number;
+    losses: number;
+  };
+}

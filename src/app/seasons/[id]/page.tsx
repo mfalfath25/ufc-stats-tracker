@@ -12,7 +12,6 @@ export default async function SeasonDetail({ params }: { params: { id: string } 
       <Suspense fallback={<Loading />}>
         <TableCompetitionDetail data={data} />
       </Suspense>
-      {/* {JSON.stringify(data)} */}
     </div>
   )
 }
