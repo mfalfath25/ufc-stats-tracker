@@ -1,4 +1,5 @@
 import { Rankings } from "@/types";
+import removeUnderscore from "@/utils/stringCleanup";
 
 interface TableRankingsProps {
   data: Rankings
@@ -12,7 +13,7 @@ export default function TableRankings({ data }: TableRankingsProps) {
         {data?.rankings.map((ranking, index) => (
           <>
             <div className="grid-item flex-grow text-center border border-red-500">
-              <kbd key={index} className="kbd w-full text-lg font-bold capitalize rounded-none">{ranking.name} ({ranking.year})</kbd>
+              <kbd key={index} className="kbd w-full text-lg font-bold capitalize rounded-none">{removeUnderscore(ranking.name)} ({ranking.year})</kbd>
               <table className="table-compact table w-full divide-y mb-10 table-zebra">
                 <thead>
                   <tr className="text-center">

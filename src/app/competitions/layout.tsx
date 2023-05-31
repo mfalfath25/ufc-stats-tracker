@@ -10,8 +10,9 @@ export default function CompetitionsLayout({
   const x = dummyCompetition
 
   return <section>
-    <TableCompetitions data={x}>
+    <kbd className="kbd w-full text-lg font-bold capitalize rounded-none">Competitions</kbd>
+    {/* <TableCompetitions data={x}>
       {children}
-    </TableCompetitions>
+    </TableCompetitions> */}
   </section>;
 }
