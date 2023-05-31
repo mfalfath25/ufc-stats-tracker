@@ -20,7 +20,6 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
 
   return (
     <div>
-      {/* <div className={`grid gap-2 ${competitionId !== '' ? 'grid-cols-2' : 'grid-cols-1'} grid-rows-auto`}> */}
       <div className="grid gap-2 grid-cols-2 grid-rows-auto">
         <div className="overflow-y-auto">
           <table className="table-compact table w-full divide-y table-zebra border border-red-500">
@@ -48,7 +47,7 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
                   <td>{season.end_date}</td>
                   <td>{season.year}</td>
                   <td>
-                    <button className="btn btn-xs">
+                    <button className="btn btn-xs normal-case">
                       <Link href={`/seasons/${season.id}`}>Detail</Link>
                     </button>
                   </td>

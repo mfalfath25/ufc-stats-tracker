@@ -1,5 +1,7 @@
 import { Rankings } from "@/types";
-import removeUnderscore from "@/utils/stringCleanup";
+import transformText from "@/utils/stringCleanup";
+import { Info } from "lucide-react";
+import Link from "next/link";
 
 interface TableRankingsProps {
   data: Rankings
@@ -13,7 +15,7 @@ export default function TableRankings({ data }: TableRankingsProps) {
         {data?.rankings.map((ranking, index) => (
           <>
             <div className="grid-item flex-grow text-center border border-red-500">
-              <kbd key={index} className="kbd w-full text-lg font-bold capitalize rounded-none">{removeUnderscore(ranking.name)} ({ranking.year})</kbd>
+              <kbd key={index} className="kbd w-full text-lg font-bold capitalize rounded-none">{transformText(ranking.name)} ({ranking.year})</kbd>
               <table className="table-compact table w-full divide-y mb-10 table-zebra">
                 <thead>
                   <tr className="text-center">
@@ -21,6 +23,7 @@ export default function TableRankings({ data }: TableRankingsProps) {
                     <th className="text-start">Name</th>
                     <th>Abbreviation</th>
                     <th>Gender</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,6 +33,13 @@ export default function TableRankings({ data }: TableRankingsProps) {
                       <td className="text-start">{fighter.competitor.name}</td>
                       <td>{fighter.competitor.abbreviation}</td>
                       <td>{fighter.competitor.gender}</td>
+                      <td>
+                        <button className="btn btn-xs normal-case px-1">
+                          <Link href={`/rankings/${fighter.competitor.id}`}>
+                            <Info size={16} strokeWidth={3} />
+                          </Link>
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

@@ -2,6 +2,8 @@
 import { SeasonDetails } from "@/types"
 import { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
+import transformText from "@/utils/stringCleanup";
+import Link from "next/link";
 
 interface TableCompetitionDetailProps {
   data: SeasonDetails
@@ -53,7 +55,7 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
                     </p>
                   </>
                 ))}</td>
-                <td>{data.sport_event_status.weight_class}</td>
+                <td>{transformText(data.sport_event_status.weight_class)}</td>
                 <td>{data.sport_event_status.title_fight === true ? 'Yes' : 'No'}</td>
                 <td>{getWinnerName(data.sport_event_status.winner_id, data.sport_event.competitors)}</td>
                 <td>{data.sport_event_status.status}</td>
