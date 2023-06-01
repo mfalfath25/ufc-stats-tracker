@@ -16,12 +16,12 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
     setReverseMapping(!reverseMapping)
   }
 
-  const competitionsToRender = reverseMapping ? [...data.seasons].reverse() : data.seasons;
+  const competitionsToRender = reverseMapping ? data.seasons : [...data.seasons].reverse();
 
   return (
     <div className="grid gap-2 grid-cols-2 grid-rows-auto h-screen">
       <div className="overflow-x-auto">
-        <table className="table-compact table w-full divide-y table-zebra border border-red-500">
+        <table className="table-compact table-xs table w-full divide-y table-zebra border border-red-500">
           <thead>
             <tr>
               <th className="flex flex-row items-center">

@@ -1,6 +1,7 @@
 'use client'
 
 import { CompetitorProfile } from "@/types"
+import BackButton from "./BackButton"
 
 interface TableCompetitorDetailProps {
   data?: CompetitorProfile
@@ -10,35 +11,37 @@ export default function TableCompetitorDetail({ data }: TableCompetitorDetailPro
 
   return (
     <div>
-      <table className="table-compact table w-full divide-y table-zebra border border-red-500">
+      <table className="table-compact table table-xs w-full divide-y table-zebra border border-red-500">
         <thead>
           <tr>
+            <th><BackButton /></th>
             <th>Competitor</th>
+            <th>Nickname</th>
             <th>Gender</th>
             <th>Country</th>
             <th>Birth Info</th>
-            <th>Stats (Reach/Height/Weight)</th>
-            <th>Nickname</th>
-            <th>Record (W/D/L)</th>
+            <th>Stats (Reach-Height-Weight)</th>
+            <th>Record (W-L-D)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             {
-              !data && <td colSpan={7}>No data</td>
-            }
-            {
-              data && (
-                <>
-                  <td>{data.competitor.name} ({data.competitor.abbreviation})</td>
-                  <td>{data.competitor.gender}</td>
-                  <td>{data.info.birth_country}</td>
-                  <td>{data.info.birth_city}, {data.info.birth_date}</td>
-                  <td>{data.info.reach} / {data.info.height} / {data.info.weight}</td>
-                  <td>{data.info.nickname}</td>
-                  <td>{data.record.wins} / {data.record.draws} / {data.record.losses}</td>
-                </>
-              )
+              data ?
+                (
+                  <>
+                    <td></td>
+                    <td>{data.competitor?.name} ({data.competitor?.abbreviation})</td>
+                    <td>{data.info?.nickname}</td>
+                    <td>{data.competitor?.gender}</td>
+                    <td>{data.info?.birth_country}</td>
+                    <td>{data.info?.birth_city}, {data.info?.birth_date}</td>
+                    <td>{data.info?.reach} - {data.info?.height} - {data.info?.weight}</td>
+                    <td>{data.record?.wins} - {data.record?.losses} - {data.record?.draws}</td>
+                  </>
+                )
+                :
+                <td colSpan={7}>No data</td>
             }
           </tr>
         </tbody>

@@ -98,6 +98,20 @@ interface SportEvent {
   venue: Venue;
 };
 
+interface SportEventStatus {
+  status?: string;
+  scheduled_length?: number;
+  weight_class?: string;
+  title_fight?: boolean;
+  main_event?: boolean;
+  match_status?: string,
+  winner_id?: string,
+  final_round?: number,
+  final_round_length?: string,
+  method?: string,
+  winner?: string
+};
+
 interface SportEventContext {
   sport: Sport;
   category: Category;
@@ -140,20 +154,6 @@ interface Venue {
   country_code: string;
   timezone: string;
   state: string;
-};
-
-interface SportEventStatus {
-  status?: string;
-  scheduled_length?: number;
-  weight_class?: string;
-  title_fight?: boolean;
-  main_event?: boolean;
-  match_status?: string,
-  winner_id?: string,
-  final_round?: number,
-  final_round_length?: string,
-  method?: string,
-  winner?: string
 };
 
 export interface CompetitorProfile {

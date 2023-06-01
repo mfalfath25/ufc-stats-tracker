@@ -16,7 +16,7 @@ export default function TableRankings({ data }: TableRankingsProps) {
           <>
             <div className="grid-item flex-grow text-center border border-red-500">
               <kbd key={index} className="kbd w-full text-lg font-bold capitalize rounded-none">{transformText(ranking.name)} ({ranking.year})</kbd>
-              <table className="table-compact table w-full divide-y mb-10 table-zebra">
+              <table className="table-compact table table-xs w-full divide-y mb-10 table-zebra">
                 <thead>
                   <tr className="text-center">
                     <th>Rank</th>

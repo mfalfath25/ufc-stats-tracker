@@ -23,11 +23,11 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
     setReverseMapping(!reverseMapping)
   }
 
-  const competitionsToRender = reverseMapping ? [...data.summaries].reverse() : data.summaries;
+  const competitionsToRender = reverseMapping ? data.summaries : [...data.summaries].reverse();
 
   return (
     <div>
-      <table className="table-compact table w-full divide-y table-zebra border border-red-500">
+      <table className="table-compact table table-xs w-full divide-y table-zebra border border-red-500">
         <thead>
           <tr>
             <th className="flex flex-row items-center">
@@ -38,9 +38,11 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
             </th>
             <th>Competitor</th>
             <th>Weight Class</th>
-            <th>Title Fight</th>
+            <th className="hidden 2xl:table-cell">Title Fight</th>
             <th>Winner</th>
-            <th>Status</th>
+            <th>Method</th>
+            <th className="hidden 2xl:table-cell">Status</th>
+            <th className="hidden 2xl:table-cell">Venue</th>
           </tr>
         </thead>
         <tbody>
@@ -55,10 +57,18 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
                     </p>
                   </>
                 ))}</td>
-                <td>{transformText(data.sport_event_status.weight_class)}</td>
-                <td>{data.sport_event_status.title_fight === true ? 'Yes' : 'No'}</td>
-                <td>{getWinnerName(data.sport_event_status.winner_id, data.sport_event.competitors)}</td>
-                <td>{data.sport_event_status.status}</td>
+                <td>{transformText(data.sport_event_status?.weight_class)}</td>
+                <td className="hidden 2xl:table-cell">{data.sport_event_status?.title_fight === true ? 'Yes' : 'No'}</td>
+                <td>{data.sport_event_status?.winner_id ? getWinnerName(data.sport_event_status?.winner_id, data.sport_event?.competitors) : '-'}</td>
+                <td>{data.sport_event_status?.method ? data.sport_event_status?.method : '-'}</td>
+                <td className="hidden 2xl:table-cell">{data.sport_event_status?.status}</td>
+                <td className="hidden 2xl:table-cell">
+                  {data.sport_event_status?.status !== 'not_started' ? (
+                    `${data.sport_event?.venue?.name}, ${data.sport_event?.venue?.country_name}`
+                  ) : (
+                    '-'
+                  )}
+                </td>
               </tr>
             ))
           }
