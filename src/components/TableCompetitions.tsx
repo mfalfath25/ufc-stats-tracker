@@ -19,9 +19,9 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
   const competitionsToRender = reverseMapping ? data.seasons : [...data.seasons].reverse();
 
   return (
-    <div className="grid gap-2 grid-cols-2 grid-rows-auto h-screen">
-      <div className="overflow-x-auto">
-        <table className="table-compact table-xs table w-full divide-y table-zebra border border-red-500">
+    <>
+      <div className="w-1/2 overflow-y-auto border border-red-500">
+        <table className="table-compact table-xs table w-full divide-y table-zebra">
           <thead>
             <tr>
               <th className="flex flex-row items-center">
@@ -55,7 +55,6 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
           </tbody>
         </table>
       </div>
-      {children}
-    </div>
+    </>
   )
 }

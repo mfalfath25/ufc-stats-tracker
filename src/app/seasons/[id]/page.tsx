@@ -8,10 +8,8 @@ export default async function SeasonDetail({ params }: { params: { id: string } 
   const data = await fetcher(endpoint);
 
   return (
-    <div>
-      <Suspense fallback={<Loading />}>
-        <TableCompetitionDetail data={data} />
-      </Suspense>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <TableCompetitionDetail data={data} />
+    </Suspense>
   )
 }

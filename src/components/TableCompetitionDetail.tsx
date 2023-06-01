@@ -26,8 +26,8 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
   const competitionsToRender = reverseMapping ? data.summaries : [...data.summaries].reverse();
 
   return (
-    <div>
-      <table className="table-compact table table-xs w-full divide-y table-zebra border border-red-500">
+    <div className="w-full overflow-y-auto border border-red-500">
+      <table className="table-compact table table-xs w-full divide-y table-zebra">
         <thead>
           <tr>
             <th className="flex flex-row items-center">
