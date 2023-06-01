@@ -10,8 +10,8 @@ interface TableCompetitorDetailProps {
 export default function TableCompetitorDetail({ data }: TableCompetitorDetailProps) {
 
   return (
-    <div>
-      <table className="table-compact table table-xs w-full divide-y table-zebra border border-red-500">
+    <div className="overflow-y-auto border border-red-500">
+      <table className="table-compact table table-xs w-full divide-y table-zebra">
         <thead>
           <tr>
             <th><BackButton /></th>
