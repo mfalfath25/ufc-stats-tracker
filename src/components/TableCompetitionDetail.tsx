@@ -51,11 +51,9 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
               <tr key={index} className='hover'>
                 <td>{index + 1}</td>
                 <td>{data.sport_event.competitors?.map((competitor, index) => (
-                  <>
-                    <p key={index}>
-                      {competitor.name} ({competitor.abbreviation})
-                    </p>
-                  </>
+                  <p key={index}>
+                    {competitor.name} ({competitor.abbreviation})
+                  </p>
                 ))}</td>
                 <td>{transformText(data.sport_event_status?.weight_class)}</td>
                 <td className="hidden 2xl:table-cell">{data.sport_event_status?.title_fight === true ? 'Yes' : 'No'}</td>

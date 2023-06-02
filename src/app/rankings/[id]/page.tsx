@@ -1,4 +1,3 @@
-import BackButton from "@/components/BackButton"
 import { fetcher } from "@/utils/fetcher"
 import { Suspense } from "react";
 import Loading from "./loading";
@@ -12,7 +11,6 @@ export default async function ConpetitorDetail({ params }: { params: { id: strin
 
   return (
     <div>
-      {/* <BackButton /> */}
       <Suspense fallback={<Loading />}>
         <TableCompetitorDetail data={data} />
       </Suspense>

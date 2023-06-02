@@ -16,7 +16,7 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
     setReverseMapping(!reverseMapping)
   }
 
-  const competitionsToRender = reverseMapping ? data.seasons : [...data.seasons].reverse();
+  const competitionsToRender = reverseMapping && data ? data?.seasons : [...data?.seasons]?.reverse();
 
   return (
     <>
@@ -41,13 +41,13 @@ export default function TableCompetitions({ data, children }: TableCompetitionsP
             {competitionsToRender?.map((season, index) => (
               <tr key={index} className='hover'>
                 <td className="">{index + 1}</td>
-                <td>{season.name}</td>
-                <td className="hidden 2xl:table-cell">{season.start_date}</td>
-                <td className="hidden 2xl:table-cell">{season.end_date}</td>
-                <td>{season.year}</td>
+                <td>{season?.name}</td>
+                <td className="hidden 2xl:table-cell">{season?.start_date}</td>
+                <td className="hidden 2xl:table-cell">{season?.end_date}</td>
+                <td>{season?.year}</td>
                 <td>
                   <button className="btn btn-xs normal-case">
-                    <Link href={`/seasons/${season.id}`}>Detail</Link>
+                    <Link href={`/seasons/${season?.id}`}>Detail</Link>
                   </button>
                 </td>
               </tr>
