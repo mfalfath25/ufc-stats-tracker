@@ -31,13 +31,13 @@ export default function TableCompetitorDetail({ data }: TableCompetitorDetailPro
                 (
                   <>
                     <td></td>
-                    <td>{data.competitor?.name} ({data.competitor?.abbreviation})</td>
-                    <td>{data.info?.nickname}</td>
-                    <td>{data.competitor?.gender}</td>
-                    <td>{data.info?.birth_country}</td>
-                    <td>{data.info?.birth_city}, {data.info?.birth_date}</td>
-                    <td>{data.info?.reach} - {data.info?.height} - {data.info?.weight}</td>
-                    <td>{data.record?.wins} - {data.record?.losses} - {data.record?.draws}</td>
+                    <td>{data?.competitor?.name} ({data?.competitor?.abbreviation})</td>
+                    <td>{data?.info?.nickname}</td>
+                    <td>{data?.competitor?.gender}</td>
+                    <td>{data?.info?.birth_country}</td>
+                    <td>{data?.info?.birth_city}, {data?.info?.birth_date}</td>
+                    <td>{data?.info?.reach} - {data?.info?.height} - {data?.info?.weight}</td>
+                    <td>{data?.record?.wins} - {data?.record?.losses} - {data?.record?.draws}</td>
                   </>
                 )
                 :

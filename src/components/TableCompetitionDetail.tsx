@@ -50,19 +50,19 @@ export default function TableCompetitionDetail({ data }: TableCompetitionDetailP
             competitionsToRender?.map((data, index) => (
               <tr key={index} className='hover'>
                 <td>{index + 1}</td>
-                <td>{data.sport_event.competitors?.map((competitor, index) => (
+                <td>{data?.sport_event?.competitors?.map((competitor, index) => (
                   <p key={index}>
-                    {competitor.name} ({competitor.abbreviation})
+                    {competitor?.name} ({competitor?.abbreviation})
                   </p>
                 ))}</td>
-                <td>{transformText(data.sport_event_status?.weight_class)}</td>
+                <td>{transformText(data?.sport_event_status?.weight_class)}</td>
                 <td className="hidden 2xl:table-cell">{data.sport_event_status?.title_fight === true ? 'Yes' : 'No'}</td>
-                <td>{data.sport_event_status?.winner_id ? getWinnerName(data.sport_event_status?.winner_id, data.sport_event?.competitors) : '-'}</td>
-                <td>{data.sport_event_status?.method ? data.sport_event_status?.method : '-'}</td>
-                <td className="hidden 2xl:table-cell">{data.sport_event_status?.status}</td>
+                <td>{data?.sport_event_status?.winner_id ? getWinnerName(data?.sport_event_status?.winner_id, data?.sport_event?.competitors) : '-'}</td>
+                <td>{data.sport_event_status?.method ? data?.sport_event_status?.method : '-'}</td>
+                <td className="hidden 2xl:table-cell">{data?.sport_event_status?.status}</td>
                 <td className="hidden 2xl:table-cell">
-                  {data.sport_event_status?.status !== 'not_started' ? (
-                    `${data.sport_event?.venue?.name}, ${data.sport_event?.venue?.country_name}`
+                  {data?.sport_event_status?.status !== 'not_started' ? (
+                    `${data?.sport_event?.venue?.name}, ${data?.sport_event?.venue?.country_name}`
                   ) : (
                     '-'
                   )}
