@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { Box, Crown, Trophy } from "lucide-react"
 import Image from "next/image"
+import ufcLogo from "@/public/ufc.svg"
 
 const Navbar = () => {
   return (
     <div className="navbar bg-base-200">
       <div className="flex-1">
-        <Image src="/ufc.svg" alt="UFC" className="h-12 w-16 mx-2" height={100} width={100} />
+        <Image src={ufcLogo} alt="UFC" className="h-12 w-16 mx-2" height={100} width={100} />
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

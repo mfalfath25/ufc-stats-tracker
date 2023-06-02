@@ -11,6 +11,7 @@ export default async function ConpetitorDetail({ params }: { params: { id: strin
 
   return (
     <div>
+      <kbd className="kbd w-full text-lg font-bold capitalize rounded-none border border-red-500 mb-1">Fighter Detail</kbd>
       <Suspense fallback={<Loading />}>
         <TableCompetitorDetail data={data} />
       </Suspense>

@@ -11,7 +11,7 @@ export default function TableRankings({ data }: TableRankingsProps) {
 
   return (
     <div>
-      <div className="grid gap-2 grid-cols-3 grid-rows-auto">
+      <div className="grid gap-2 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 grid-rows-auto">
         {data?.rankings.map((ranking, index) => (
           <>
             <div className="grid-item flex-grow text-center border border-red-500">

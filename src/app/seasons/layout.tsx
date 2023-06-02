@@ -1,5 +1,4 @@
 import TableCompetitions from "@/components/TableCompetitions";
-import { dummySeasons } from "@/dummy";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { fetcher } from "@/utils/fetcher";
@@ -10,7 +9,6 @@ export default async function SeasonsLayout({
   children: React.ReactNode;
 }) {
   const data = await fetcher('seasons')
-  // const x = dummySeasons
 
   return (
     <section className="flex-grow flex flex-col items-start justify-start h-screen overflow-y-auto">
