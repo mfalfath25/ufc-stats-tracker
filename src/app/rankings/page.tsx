@@ -4,11 +4,13 @@ import { Suspense } from "react"
 import Loading from "./loading"
 
 export default async function Rankings() {
-  const data = await fetcher('rankings')
+  const data = await fetcher("rankings")
 
   return (
     <div>
-      <kbd className="kbd w-full text-lg font-bold capitalize rounded-none border border-red-500 mb-1">Rankings</kbd>
+      <kbd className="kbd mb-1 w-full rounded-none border border-red-500 text-lg font-bold capitalize">
+        Rankings
+      </kbd>
       <Suspense fallback={<Loading />}>
         <TableRankings data={data} />
       </Suspense>

@@ -10,178 +10,178 @@
 // }
 
 interface Competitor {
-  id?: string;
-  name?: string;
-  abbreviation?: string;
-  ageGroup?: string;
-  country?: string;
-  countryCode?: string;
-  gender?: string;
-  qualifier?: Qualifier;
-  virtual?: boolean;
+  id?: string
+  name?: string
+  abbreviation?: string
+  ageGroup?: string
+  country?: string
+  countryCode?: string
+  gender?: string
+  qualifier?: Qualifier
+  virtual?: boolean
 }
 
 interface Qualifier {
-  value: string;
+  value: string
 }
 
 export interface Champions {
-  categories: Category[];
-  generatedAt: string;
+  categories: Category[]
+  generatedAt: string
 }
 
 interface CompetitorRanking {
-  rank: number;
-  movement: number;
-  competitor: Competitor;
+  rank: number
+  movement: number
+  competitor: Competitor
 }
 
 interface Ranking {
-  type_id: number;
-  name: string;
-  year: number;
-  week: number;
-  competitor_rankings: CompetitorRanking[];
+  type_id: number
+  name: string
+  year: number
+  week: number
+  competitor_rankings: CompetitorRanking[]
 }
 
 export interface Rankings {
-  generated_at: string;
-  rankings: Ranking[];
+  generated_at: string
+  rankings: Ranking[]
 }
 
 interface Competition {
-  id: string;
-  name: string;
-  parent_id?: string;
+  id: string
+  name: string
+  parent_id?: string
   category: {
-    id: string;
-    name: string;
-  },
+    id: string
+    name: string
+  }
 }
 
 export interface Competitions {
-  competitions: Competition[];
+  competitions: Competition[]
   generated_at: string
 }
 
 interface Season {
-  id?: string;
-  name?: string;
-  start_date?: string;
-  end_date?: string;
-  year?: string;
-  competition_id?: string;
+  id?: string
+  name?: string
+  start_date?: string
+  end_date?: string
+  year?: string
+  competition_id?: string
 }
 
 export interface Seasons {
-  generated_at: string;
-  seasons: Season[];
+  generated_at: string
+  seasons: Season[]
 }
 
 export interface SeasonDetails {
-  generated_at: string;
-  summaries: Summary[];
-};
+  generated_at: string
+  summaries: Summary[]
+}
 
 interface Summary {
-  sport_event: SportEvent;
-  sport_event_status: SportEventStatus;
-};
+  sport_event: SportEvent
+  sport_event_status: SportEventStatus
+}
 
 interface SportEvent {
-  id: string;
-  start_time: string;
-  start_time_confirmed: boolean;
-  sport_event_context: SportEventContext;
-  coverage: Coverage;
-  competitors: Competitor[];
-  venue: Venue;
-};
+  id: string
+  start_time: string
+  start_time_confirmed: boolean
+  sport_event_context: SportEventContext
+  coverage: Coverage
+  competitors: Competitor[]
+  venue: Venue
+}
 
 interface SportEventStatus {
-  status?: string;
-  scheduled_length?: number;
-  weight_class?: string;
-  title_fight?: boolean;
-  main_event?: boolean;
-  match_status?: string,
-  winner_id?: string,
-  final_round?: number,
-  final_round_length?: string,
-  method?: string,
+  status?: string
+  scheduled_length?: number
+  weight_class?: string
+  title_fight?: boolean
+  main_event?: boolean
+  match_status?: string
+  winner_id?: string
+  final_round?: number
+  final_round_length?: string
+  method?: string
   winner?: string
-};
+}
 
 interface SportEventContext {
-  sport: Sport;
-  category: Category;
-  competition: Competition;
-  season: Season;
-  stage: Stage;
-};
+  sport: Sport
+  category: Category
+  competition: Competition
+  season: Season
+  stage: Stage
+}
 
 interface Sport {
-  id: string;
-  name: string;
-};
+  id: string
+  name: string
+}
 
 interface Category {
-  id: string;
-  name: string;
-};
+  id: string
+  name: string
+}
 
 interface Competition {
-  id: string;
-  name: string;
-};
+  id: string
+  name: string
+}
 
 interface Stage {
-  type: string;
-};
+  type: string
+}
 
 interface Coverage {
-  live: boolean;
-  type: string;
-};
+  live: boolean
+  type: string
+}
 
 interface Venue {
-  id: string;
-  name: string;
-  capacity: number;
-  city_name: string;
-  country_name: string;
-  map_coordinates: string;
-  country_code: string;
-  timezone: string;
-  state: string;
-};
+  id: string
+  name: string
+  capacity: number
+  city_name: string
+  country_name: string
+  map_coordinates: string
+  country_code: string
+  timezone: string
+  state: string
+}
 
 export interface CompetitorProfile {
-  generated_at: string;
+  generated_at: string
   competitor: {
-    id: string;
-    name: string;
-    abbreviation: string;
-    gender: string;
-  };
+    id: string
+    name: string
+    abbreviation: string
+    gender: string
+  }
   info: {
-    birth_city: string;
-    birth_state: string;
-    birth_country: string;
-    birth_country_code: string;
-    birth_date: string;
-    fighting_out_of_city: string;
-    fighting_out_of_country: string;
-    fighting_out_of_country_code: string;
-    fighting_out_of_state: string;
-    reach: number;
-    height: number;
-    weight: number;
-    nickname: string;
-  };
+    birth_city: string
+    birth_state: string
+    birth_country: string
+    birth_country_code: string
+    birth_date: string
+    fighting_out_of_city: string
+    fighting_out_of_country: string
+    fighting_out_of_country_code: string
+    fighting_out_of_state: string
+    reach: number
+    height: number
+    weight: number
+    nickname: string
+  }
   record: {
-    wins: number;
-    draws: number;
-    losses: number;
-  };
+    wins: number
+    draws: number
+    losses: number
+  }
 }

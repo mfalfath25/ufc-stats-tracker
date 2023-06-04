@@ -7,22 +7,31 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-200">
       <div className="flex-1">
-        <Image src={ufcLogo} alt="UFC" className="h-12 w-16 mx-2" height={100} width={100} />
+        <Image
+          src={ufcLogo}
+          alt="UFC"
+          className="mx-2 h-12 w-16"
+          height={100}
+          width={100}
+        />
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link href="/" className="gap-2">Home
+            <Link href="/" className="gap-2">
+              Home
               <Box color="#a6adae" size={18} strokeWidth={2} />
             </Link>
           </li>
           <li>
-            <Link href="/rankings" className="gap-2">Rankings
+            <Link href="/rankings" className="gap-2">
+              Rankings
               <Crown color="#a6adae" size={18} strokeWidth={2} />
             </Link>
           </li>
           <li>
-            <Link href="/seasons" className="gap-2">Seasons
+            <Link href="/seasons" className="gap-2">
+              Seasons
               <Trophy color="#a6adae" size={18} strokeWidth={2} />
             </Link>
           </li>

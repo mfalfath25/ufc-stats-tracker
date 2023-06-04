@@ -10,5 +10,3 @@ export const fetcher = async (endpoint: string) => {
     return res.json()
   }
 }
-
-
