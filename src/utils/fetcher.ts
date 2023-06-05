@@ -9,14 +9,14 @@ export const fetcher = async (endpoint: string) => {
       url.search = params.toString()
       const res = await fetch(url)
 
-      if (!res.ok) {
-        throw new Error('Failed to fetch API')
+      if (res.ok) {
+        return res.json()
+      } else {
+        throw new Error('Error fetching data')
       }
-
-      return res.json()
     }
   } catch (error) {
     console.error(error)
-    throw new Error('Error fetching data')
+    throw new Error('API error')
   }
 }
