@@ -1,16 +1,20 @@
 "use client"
 import { Seasons } from "@/types"
 import { ArrowUpDown } from "lucide-react"
+import { useState } from "react"
 import Link from "next/link"
-import { ReactNode, useState } from "react"
+import EmptyData from "./EmptyData"
 
 interface TableCompetitionsProps {
-  data: Seasons
-  children?: ReactNode
+  data: Seasons | undefined | null
 }
 
-const TableCompetitions = ({ data, children }: TableCompetitionsProps) => {
+const TableCompetitions = ({ data }: TableCompetitionsProps) => {
   const [reverseMapping, setReverseMapping] = useState(false)
+
+  if (!data || !data.seasons) {
+    return <EmptyData />
+  }
 
   const handleToggleReverse = () => {
     setReverseMapping(!reverseMapping)

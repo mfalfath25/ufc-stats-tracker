@@ -2,6 +2,7 @@ import TableCompetitions from "@/components/TableCompetitions"
 import { Suspense } from "react"
 import Loading from "./loading"
 import { fetcher } from "@/utils/fetcher"
+import EmptyData from "@/components/EmptyData"
 
 export default async function SeasonsLayout({
   children,
@@ -11,18 +12,24 @@ export default async function SeasonsLayout({
   const data = await fetcher("seasons")
 
   return (
-    <section className="flex h-screen flex-grow flex-col items-start justify-start overflow-y-auto">
+    <section className="flex h-screen flex-grow flex-col items-start justify-start overflow-y-auto m-0 p-0">
       <kbd className="kbd mb-1 w-full rounded-none border border-red-500 text-lg font-bold capitalize">
         Seasons
       </kbd>
-      <div className="flex w-full flex-row overflow-y-auto">
-        <Suspense fallback={<Loading />}>
-          <TableCompetitions data={data} />
-        </Suspense>
-        <div className="relative flex w-1/2 flex-grow overflow-y-auto">
-          {children}
-        </div>
-      </div>
+      {
+        data === null || undefined ? (
+          <EmptyData />
+        ) : (
+          <div className="flex w-full flex-row overflow-y-auto">
+            <Suspense fallback={<Loading />}>
+              <TableCompetitions data={data} />
+            </Suspense>
+            <div className="relative flex w-1/2 flex-grow overflow-y-auto">
+              {children}
+            </div>
+          </div>
+        )
+      }
     </section>
   )
 }

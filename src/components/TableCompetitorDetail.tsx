@@ -1,12 +1,17 @@
 "use client"
 import { CompetitorProfile } from "@/types"
 import BackButton from "./BackButton"
+import EmptyData from "./EmptyData"
 
 interface TableCompetitorDetailProps {
-  data?: CompetitorProfile
+  data: CompetitorProfile | null | undefined
 }
 
 const TableCompetitorDetail = ({ data }: TableCompetitorDetailProps) => {
+  if (!data || !data.competitor) {
+    return <EmptyData />
+  }
+
   return (
     <div className="overflow-y-auto border border-red-500">
       <table className="table-compact table-zebra table-xs table w-full divide-y">

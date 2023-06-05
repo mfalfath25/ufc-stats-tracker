@@ -3,13 +3,18 @@ import { SeasonDetails } from "@/types"
 import { useState } from "react"
 import { ArrowUpDown } from "lucide-react"
 import { transformText, transformWinningMethod } from "@/utils/stringCleanup"
+import EmptyData from "./EmptyData"
 
 interface TableCompetitionDetailProps {
-  data: SeasonDetails
+  data: SeasonDetails | null | undefined
 }
 
 const TableCompetitionDetail = ({ data }: TableCompetitionDetailProps) => {
   const [reverseMapping, setReverseMapping] = useState(false)
+
+  if (!data || !data.summaries) {
+    return <EmptyData />
+  }
 
   const getWinnerName = (winnerId?: string, competitors?: any[]) => {
     const winner = competitors?.find((competitor) => competitor.id === winnerId)
@@ -76,9 +81,9 @@ const TableCompetitionDetail = ({ data }: TableCompetitionDetailProps) => {
               <td>
                 {data?.sport_event_status?.winner_id
                   ? getWinnerName(
-                      data?.sport_event_status?.winner_id,
-                      data?.sport_event?.competitors
-                    )
+                    data?.sport_event_status?.winner_id,
+                    data?.sport_event?.competitors
+                  )
                   : "-"}
               </td>
               <td>

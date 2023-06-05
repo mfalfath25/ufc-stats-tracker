@@ -3,11 +3,16 @@ import { Rankings } from "@/types"
 import { transformText } from "@/utils/stringCleanup"
 import { Info } from "lucide-react"
 import Link from "next/link"
+import EmptyData from "./EmptyData"
 
 interface TableRankingsProps {
-  data: Rankings
+  data: Rankings | null | undefined
 }
 const TableRankings = ({ data }: TableRankingsProps) => {
+  if (!data || !data.rankings) {
+    return <EmptyData />
+  }
+
   return (
     <div>
       <div className="grid-rows-auto grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
