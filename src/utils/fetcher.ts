@@ -4,19 +4,23 @@ export const fetcher = async (endpoint: string) => {
   const url = new URL(`${base_url}/en/${endpoint}.json`)
 
   try {
-    if (api_key) {
-      const params = new URLSearchParams({ api_key })
-      url.search = params.toString()
-      const res = await fetch(url)
+    if (!api_key) {
+      throw new Error("API key is missing")
+    }
 
-      if (res.ok) {
-        return res.json()
-      } else {
-        throw new Error('Error fetching data')
-      }
+    const params = new URLSearchParams({ api_key })
+    url.search = params?.toString()
+    const res = await fetch(url)
+
+    if (res.ok) {
+      return res?.json()
+    } else {
+      const errorResponse = await res?.json()
+      console.error(errorResponse.message || "Error fetching data")
+      return null
     }
   } catch (error) {
     console.error(error)
-    throw new Error('API error')
+    return null
   }
 }

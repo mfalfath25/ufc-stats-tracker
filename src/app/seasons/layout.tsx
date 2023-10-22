@@ -1,8 +1,8 @@
-import TableCompetitions from "@/components/TableCompetitions"
 import { Suspense } from "react"
-import Loading from "./loading"
 import { fetcher } from "@/utils/fetcher"
 import EmptyData from "@/components/EmptyData"
+import TableCompetitions from "@/components/TableCompetitions"
+import Loading from "./loading"
 
 export default async function SeasonsLayout({
   children,
